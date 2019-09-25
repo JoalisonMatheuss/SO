@@ -19,11 +19,11 @@ def child():
 		
 
 def parent(newpid):
-	if (parar == 1):
+	if (parar == '&'):
 		pids = (os.getpid(), newpid)
-		print("Processo pai: %d, filho: %d \n"%pids)
+		print("processo pai: %d, processo filho: %d\n" % pids)
 		ret = os.waitpid(newpid, 0)
-		print("Filho terminou com status: ", ret)
+		print("Filho terminou com status", ret)
 	else:
 		pids = (os.getpid(), newpid)
 		print("Processo pai: %d, filho: %d \n"%pids)
@@ -31,20 +31,21 @@ def parent(newpid):
 while True:
 	
 	os.system('clear')
-	print("============== ESPERAR/ OU NÃO ESPERAR =================")
-	print("0 --> Não Esperar")
-	print("1 --> Esperar")
-	print("========================================================")
+	print("**Aguardar o programa fechar // Abrir outros programas**")
+	print("=============== ESPERAR / OU NÃO ESPERAR ================")
+	print("|		0 --> Não Esperar			|")
+	print("|		& --> Esperar				|")
+	print("=========================================================")
 	
-	parar = int(input("Digite sua escolha: "))                     
+	parar = input("Digite a escolha: ")                
 	
 	os.system('clear')
-	print("------------------------------ MY SHELL -----------------------------")
+	print("------------------------------ MY SHELL --------------------------")
 	print("|			1 - firefox				|")
 	print("|			2 - gedit				|")
 	print("|			3 - gnome-calculator			|")
 	print("|			4 - nautilus				|")
-	print("-------------------------------------------------------------------\n")
+	print("------------------------------------------------------------------\n")
 
 
 	opcao = int(input("Digite o que você quer que abra: "))
@@ -59,7 +60,7 @@ while True:
 	else:
 		parent(newpid)
 
-	reply = input("s para sair / c para um novo trabalho: ")
+	reply = input("s para sair / c para um novo trabalho: \n")
 	if reply == 'c' or reply == 'C':
 		continue
 	else:
